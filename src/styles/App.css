@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #2C3E50;
+  --accent-color: #F39C12;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --bg-light: #f5f7fa;
+  --white: #ffffff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --radius: 10px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  max-width: 960px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+  display: inline-block;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--accent-color);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-color);
+}
+
+.card {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.error {
+  color: #e74c3c;
+  text-align: center;
+  padding: 1rem;
+  background-color: #fadbd8;
+  border-radius: var(--radius);
+  margin: 1rem 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .main-content {
+    margin: 1rem auto;
+  }
+}

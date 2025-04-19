@@ -1,0 +1,67 @@
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+
+.footer-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heart-icon {
+  color: #e74c3c;
+  display: inline-block;
+  margin: 0 0.25rem;
+  animation: heartbeat 1.5s infinite;
+  vertical-align: middle;
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  transition: var(--transition);
+}
+
+.github-link span {
+  margin-left: 0.5rem;
+}
+
+.github-link:hover {
+  color: var(--accent-color);
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .github-link {
+    margin-top: 1rem;
+  }
+}
