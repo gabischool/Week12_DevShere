@@ -12,7 +12,7 @@ const Projects = () => {
   const [error, setError] = useState(null);
 
  // TODO: Fetch repositories from GitHub API using axios and useEffect and set the repos state, also handle the loading and error states
- // API: https://api.github.com/users/duraanali/repos?per_page=10&sort=updated
+ // API: https://api.github.com/users/YOUR_GITHUB_USERNAME/repos?per_page=10&sort=updated
 
 
 
