@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 // TODO: Import axios here
+import axios from 'axios';
 
 
 import ProjectCard from '../components/ProjectCard';
@@ -13,7 +14,22 @@ const Projects = () => {
 
  // TODO: Fetch repositories from GitHub API using axios and useEffect and set the repos state, also handle the loading and error states
  // API: https://api.github.com/users/YOUR_GITHUB_USERNAME/repos?per_page=10&sort=updated
+ useEffect(() => {
+  const fetchRepos = async () => {
+    try {
+      const response = await axios.get(
+        'https://api.github.com/users/Mohamud-Hasen/repos?per_page=10&sort=updated'
+      );
+      setRepos(response.data);
+      setLoading(false);
+    } catch (err) {
+      setError('Failed to load repositories. Please try again later.');
+      setLoading(false);
+    }
+  };
 
+  fetchRepos();
+}, []);
 
 
   if (loading) {
