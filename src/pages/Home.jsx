@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // TODO: Import axios here
-
+import axios from 'axios';
 import moment from 'moment';
 import { Users, Star, GitBranch, MapPin, Calendar, ExternalLink } from 'lucide-react';
 import '../styles/Home.css';
+
 
 const Home = () => {
   const [user, setUser] = useState(null);
@@ -14,8 +15,23 @@ const Home = () => {
 
   // TODO: Fetch user data from GitHub API using axios and useEffect and set the user state, also handle the loading and error states
     // API: https://api.github.com/users/YOUR_USERNAME
-
-
+  useEffect(()=>{
+    const fetchGithubUser =async() =>{
+      try{
+          setLoading (true)
+          const response = await axios.get('https://api.github.com/users/farahgarow')
+          setUser(response.data)
+      }
+      catch (err){
+        setError('Failed to load github User. Please try agian later')
+        console.error('Error fetching github user', err)
+      }
+      finally{
+        setLoading(false)
+      }
+    }
+    fetchGithubUser();    
+  },[]);
 
   if (loading) {
     return <div className="loading">Loading profile data...</div>;
@@ -26,7 +42,7 @@ const Home = () => {
   }
 
   return (
-    <div className="home-container">
+    <div className="home-container">              
       {user && (
         <>
           <div className="profile-card">
