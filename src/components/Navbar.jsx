@@ -1,6 +1,7 @@
 import React from 'react';
 
-// TODO: Import react router dom components
+// TODO: Import LINK from react router dom components
+import { useLocation } from 'react-router-dom'
 
 import { Github } from 'lucide-react';
 import '../styles/Navbar.css';
