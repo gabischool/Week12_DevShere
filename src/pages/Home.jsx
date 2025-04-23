@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // TODO: Import axios here
-
+import axios from 'axios'
 import moment from 'moment';
 import { Users, Star, GitBranch, MapPin, Calendar, ExternalLink } from 'lucide-react';
 import '../styles/Home.css';
-
+ 
 const Home = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -14,9 +14,26 @@ const Home = () => {
 
   // TODO: Fetch user data from GitHub API using axios and useEffect and set the user state, also handle the loading and error states
     // API: https://api.github.com/users/YOUR_USERNAME
+     
+    
+    useEffect(() => {
+      const fetchRandomGithub = async () => {
+        try {
+          setLoading(true);
+          const response = await axios.get('https://api.github.com/users/haniawees');
+          setUser(response.data);
+        } catch (err) {
+          setError('Failed to load meal. Please try again.');
+          console.error('Error fetching random meal:', err);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchRandomGithub();
+    }, []);
 
-
-
+  
   if (loading) {
     return <div className="loading">Loading profile data...</div>;
   }

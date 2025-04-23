@@ -34,8 +34,8 @@
   gap: 2rem;
 }
 
-.navbar-item {
-  margin: 0;
+.navbar-item .nav-link {
+  margin: 0 1rem;
 }
 
 .navbar-item a {

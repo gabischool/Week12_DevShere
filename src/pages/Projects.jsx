@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 // TODO: Import axios here
 
-
+import axios from 'axios';
 import ProjectCard from '../components/ProjectCard';
 import '../styles/Projects.css';
 
@@ -10,6 +10,25 @@ const Projects = () => {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchRandomGithub = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const response = await axios.get('https://api.github.com/users/haniawees/repos?per_page=10&sort=updated');
+        setRepos(response.data || []);
+        console.log('response.date' ,response)
+      } catch (err) {
+        setError('Failed to load meals. Please try again.');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRandomGithub();
+  }, []);
 
  // TODO: Fetch repositories from GitHub API using axios and useEffect and set the repos state, also handle the loading and error states
  // API: https://api.github.com/users/YOUR_GITHUB_USERNAME/repos?per_page=10&sort=updated
