@@ -11,24 +11,30 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
+
         <Link to="/" className="navbar-logo">
-          <Github size={24} />
+          {/* <Github size={24} /> */}
           <span>DevSphere</span>
+      
         </Link>
 
         <ul className="navbar-menu">
           <li className ="navbar-item">
            {/* TODO: Add the home route here */}
+
            <Link to="/"className={`navbar-item ${location.pathname==='/'? 'active': '' }`}>
            Home
            </Link>
           </li>
           
           <li className="navbar-item">
-          <Link to="/Projects"className={`navbar-item ${location.pathname==='/'? 'active': '' }`}>
+          
+            {/* TODO: Add the projects route here */}
+
+            <Link to="/Projects"className={`navbar-item ${location.pathname==='/'? 'active': '' }`}>
           Projects 
           </Link>
-            {/* TODO: Add the projects route here */}
+
           </li>
         </ul>
       </div>

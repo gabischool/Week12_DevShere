@@ -19,12 +19,13 @@ useEffect(()=> {
     try {
       
       setLoading (true)
-      setError = (null)
-      const response = await axios.get("https://api.github.com/users/<your-Bilal-Ibrahim1")
-      setRepos(response .data .repos[0]);
+      // setError = (null)
+      const response = await axios.get("https://api.github.com/users/bilal-ibrahim1/repos?per_page=10&sort=updated")
+      setRepos(response.data);
+      console.log(response.data)
     } catch (error) {
-      setError('failed to load repositories.');
-      console.error (err);
+      setError(error)
+      console.error (error);
     } finally  {
       setLoading (false)
 

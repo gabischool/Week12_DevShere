@@ -22,12 +22,13 @@ const Home = () => {
         try {
           
           setLoading (true)
-          setError = (null)
-          const response = await axios.get("https://api.github.com/users/<your-Bilal-Ibrahim1")
-          setUser(response .data .user[0]);
+          // setError = (null)
+          const response = await axios.get("https://api.github.com/users/Bilal-Ibrahim1")
+          console.log(response.data)
+          setUser(response.data);
         } catch (error) {
-          setError('failed to load user.please try it again ');
-          console.error ('error fetching user profile:', err);
+          setError (error);
+          console.error ('error fetching user profile:', error);
         } finally  {
           setLoading (false)
     

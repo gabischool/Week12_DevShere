@@ -1,5 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
+import Home from "./pages/Home"
+import Projects from './pages/Projects';
 
 
 // TODO: Import react router dom here
@@ -14,10 +16,10 @@ function App() {
         <Navbar />
         <main className="main-content">
          {/* TODO: Add react router dom routes here */}
-         <Routes/>
-         <Route path="/"element={<home/>}/>
-         <Route path="/projects" element={<projects/>} />
-         <Routes/>
+         <Routes>
+         <Route path="/"element={<Home/>}/>
+         <Route path="/projects" element={<Projects/>} />
+         </Routes>
         </main>
         <Footer />
       </div>
