@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import { Link } from 'react-router-dom';
 
 // TODO: Import axios here
+import axios from 'axios';
 
 import moment from 'moment';
 import { Users, Star, GitBranch, MapPin, Calendar, ExternalLink } from 'lucide-react';
@@ -16,7 +17,29 @@ const Home = () => {
     // API: https://api.github.com/users/YOUR_USERNAME
 
 
-
+    useEffect(()=> {
+      const FetchUser= async () => {
+        try {
+          
+          setLoading (true)
+          setError = (null)
+          const response = await axios.get("https://api.github.com/users/<your-Bilal-Ibrahim1")
+          setUser(response .data .user[0]);
+        } catch (error) {
+          setError('failed to load user.please try it again ');
+          console.error ('error fetching user profile:', err);
+        } finally  {
+          setLoading (false)
+    
+        }
+        
+      
+      };
+    
+      FetchUser();
+    },[]);
+    
+  
   if (loading) {
     return <div className="loading">Loading profile data...</div>;
   }
