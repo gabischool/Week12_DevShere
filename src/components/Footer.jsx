@@ -10,7 +10,7 @@ const Footer = () => {
           Built with <Heart size={16} className="heart-icon" /> using React
         </p>
         <a
-          href="https://github.com/duraanali"
+          href="https://github.com/shukri-mo"
           target="_blank"
           rel="noopener noreferrer"
           className="github-link"
