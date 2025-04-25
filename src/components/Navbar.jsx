@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 // TODO: Import LINK from react router dom components
 import { useLocation } from 'react-router-dom'
 
@@ -20,9 +20,15 @@ const Navbar = () => {
         <ul className="navbar-menu">
           <li className="navbar-item">
            {/* TODO: Add the home route here */}
+           <Link to='/'>Home</Link>
           </li>
           <li className="navbar-item">
             {/* TODO: Add the projects route here */}
+            <Link to='/projects'>Projects</Link>
+          </li>
+          <li className="navbar-item">
+            {/* TODO: Add the projects route here */}
+            <Link to='/contact'>Contact Me</Link>
           </li>
         </ul>
       </div>

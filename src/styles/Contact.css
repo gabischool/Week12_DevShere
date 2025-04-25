@@ -1,0 +1,14 @@
+.contact{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+}
+.card p{
+    margin: 20px;
+}
+.card p span{
+    margin-left: 10px;
+}
+
