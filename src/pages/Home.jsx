@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 
 // TODO: Import axios here
+import axios from 'axios';
+
 
 import moment from 'moment';
 import { Users, Star, GitBranch, MapPin, Calendar, ExternalLink } from 'lucide-react';
@@ -13,7 +16,20 @@ const Home = () => {
   const [error, setError] = useState(null);
 
   // TODO: Fetch user data from GitHub API using axios and useEffect and set the user state, also handle the loading and error states
-    // API: https://api.github.com/users/YOUR_USERNAME
+useEffect(() => {
+
+     axios.get("https://api.github.com/users/Mariayusuf12")
+
+     .then(response => {
+      setUser(response.data);
+      setLoading(false);
+    })
+    .catch(error => {
+      setError(error.message);
+      setLoading(false);
+    });
+
+    }, []);
 
 
 
