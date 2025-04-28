@@ -61,6 +61,7 @@
   transition: var(--transition);
 }
 
+
 .navbar-item a:hover::after,
 .navbar-item a.active::after {
   width: 100%;
