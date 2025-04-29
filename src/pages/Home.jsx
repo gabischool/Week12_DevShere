@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios  from 'axios'
 
 // TODO: Import axios here
 
@@ -13,7 +14,24 @@ const Home = () => {
   const [error, setError] = useState(null);
 
   // TODO: Fetch user data from GitHub API using axios and useEffect and set the user state, also handle the loading and error states
-    // API: https://api.github.com/users/YOUR_USERNAME
+    // API: https://api.github.com/users/EngRAAF
+    useEffect(() => {
+      const user = async () => {
+        try{
+          const data = await axios.get("https://api.github.com/users/Eng-RAAF");
+          console.log(data);
+          setUser(data.data);
+          setLoading(true) ;
+        }catch(error){
+          setError(error);
+
+        } finally {
+          setLoading(false);
+        }
+
+      }
+      user()
+      }, [])
 
 
 

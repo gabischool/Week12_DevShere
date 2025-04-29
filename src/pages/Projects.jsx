@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 // TODO: Import axios here
 
@@ -12,7 +13,24 @@ const Projects = () => {
   const [error, setError] = useState(null);
 
  // TODO: Fetch repositories from GitHub API using axios and useEffect and set the repos state, also handle the loading and error states
- // API: https://api.github.com/users/YOUR_GITHUB_USERNAME/repos?per_page=10&sort=updated
+ // API: https://api.github.com/users/YOUR_GITHUB_EngRAAF/repos?per_page=10&sort=updated
+ useEffect(() => {
+  const user = async () => {
+    try{
+      setLoading(true);
+      const data = await axios.get("https://api.github.com/users/Eng-RAAF/repos?per_page=10&sort=updated");
+      
+      setRepos(data.data);
+      console.log(data)
+    }catch(error){
+      setError(error);
+    }finally{
+      setLoading(false);
+    }
+
+  }
+  user()
+  }, [])
 
 
 
