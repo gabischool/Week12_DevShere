@@ -23,13 +23,14 @@ const Navbar = () => {
            {/* TODO: Add the home route here */
             <> 
              <Link to="/">Home </Link>
-             <Link to="/projects">Projects </Link>
+             
             </>
            }
 
           </li>
           <li className="navbar-item">
             {/* TODO: Add the projects route here */}
+            <Link to="/projects">Projects </Link>
           </li>
         </ul>
       </div>
